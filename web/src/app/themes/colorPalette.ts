@@ -1,0 +1,32 @@
+export const lightPalette = {
+    primary: "#FFFFFF",
+    secondary: "#f4f4f4",
+    text: "#747474",
+    title: "#171717",
+    accent: "#0052CC",
+    hover: "#dfdfdf",
+    filter: "invert(48%) sepia(10%) saturate(270%) hue-rotate(201deg) brightness(95%) contrast(97%)",
+    primaryFilter: "invert(100%) sepia(11%) saturate(156%) hue-rotate(114deg) brightness(109%) contrast(80%)",
+    activeFilter: "invert(3%) sepia(2%) saturate(6850%) hue-rotate(218deg) brightness(95%) contrast(83%)",
+    accentFilter: "invert(39%) sepia(95%) saturate(1748%) hue-rotate(201deg) brightness(100%) contrast(103%)",
+    transition: "0.3s ease-in-out all",
+    shadowColor: "0px 0px 10px 2px rgba(49, 49, 49, 0.48)",
+    borderColor: "1px solid #535353",
+}
+
+export const darkPalette = {
+    primary: "#000000",
+    secondary: "#0A0A0A",
+    text: "#848284",
+    title: "#D0E9DF",
+    accent: "#6B4FBB",
+    hover: "#282B32",
+    filter: "invert(50%) sepia(23%) saturate(155%) hue-rotate(180deg) brightness(85%) contrast(85%)",
+    primaryFilter: "invert(4%) sepia(6%) saturate(2088%) hue-rotate(187deg) brightness(94%) contrast(92%)",
+    activeFilter: "invert(100%) sepia(26%) saturate(1324%) hue-rotate(309deg) brightness(103%) contrast(110%)",
+    inActiveFilter: "invert(46%) sepia(11%) saturate(0%) hue-rotate(130deg) brightness(104%) contrast(97%)",
+    accentFilter: "invert(36%) sepia(12%) saturate(3193%) hue-rotate(216deg) brightness(97%) contrast(94%)",
+    transition: "0.3s ease-in-out all",
+    shadowColor: "0px 0px 10px 2px rgba(49, 49, 49, 0.48)",
+    borderColor: "1px solid #535353",
+}
