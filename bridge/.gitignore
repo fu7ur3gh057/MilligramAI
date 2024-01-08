@@ -2,7 +2,8 @@
 .idea
 
 data
-checkpoints
+ml/checkpoints
+ml/model.py
 
 # Ignore Django migrations
 **/migrations/*.pyc

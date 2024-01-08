@@ -29,14 +29,25 @@ class Settings(BaseSettings):
     """
 
     host: str = "0.0.0.0"
-    port: int = 18000
-    # quantity of workers
-    workers_count: int = 4
+    port: int = 18100
+    # quantity of workers for uvicorn
+    workers_count: int = 3
+    # Enable uvicorn reloading
+    reload: bool = True
+    socketio_path: str = "/ws"
+    api_prefix: str = "/api/v3"
+
     # Current environment
     environment: str = "dev"
-    debug: bool = False
 
     log_level: LogLevel = LogLevel.INFO
+    # Variables for the database
+    db_host: str = "localhost"
+    db_port: int = 5432
+    db_user: str = "postgres"
+    db_pass: str = "1234"
+    db_base: str = "bridge_db"
+    db_echo: bool = False
 
     # Variables for Redis
     redis_host: str = "localhost"
@@ -47,13 +58,29 @@ class Settings(BaseSettings):
 
     # Variables for RabbitMQ
     rabbit_host: str = "localhost"
-    rabbit_port: int = 15672
+    rabbit_port: int = 5672
     rabbit_user: str = "guest"
     rabbit_pass: str = "guest"
     rabbit_vhost: str = "/"
 
     rabbit_pool_size: int = 2
     rabbit_channel_pool_size: int = 10
+
+    @property
+    def db_url(self) -> URL:
+        """
+        Assemble database URL from settings.
+
+        :return: database URL.
+        """
+        return URL.build(
+            scheme="postgresql+asyncpg",
+            host=self.db_host,
+            port=self.db_port,
+            user=self.db_user,
+            password=self.db_pass,
+            path=f"/{self.db_base}",
+        )
 
     @property
     def redis_url(self) -> URL:
@@ -92,7 +119,7 @@ class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(
         env_file=".env",
-        env_prefix="DEEPCONFIG",
+        env_prefix="BRIDGECONFIG",
         env_file_encoding="utf-8",
     )
 

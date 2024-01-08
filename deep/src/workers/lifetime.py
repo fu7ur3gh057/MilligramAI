@@ -57,7 +57,7 @@ class Worker(Thread):
             print(f"{self.name} Received: {body_str}")
             data = TranslationSchema.model_validate_json(json_data=body_str)
             print(data.text)
-            time.sleep(0.5)
+            time.sleep(5)
             if data.is_partial:
                 print("Data for Websocket")
                 self._translate_partial(data=data)
